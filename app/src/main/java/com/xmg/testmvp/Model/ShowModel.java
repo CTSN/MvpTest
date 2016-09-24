@@ -17,7 +17,7 @@ public class ShowModel implements ShowModelIpl{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                listerner.showText("显示成功");
+                listerner.success("显示成功");
 
             }
         }).start();

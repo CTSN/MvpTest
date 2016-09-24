@@ -6,5 +6,5 @@ package com.xmg.testmvp.Model;
 
 public interface ShowListerner {
 
-    void showText(String text);
+    void success(String text);
 }

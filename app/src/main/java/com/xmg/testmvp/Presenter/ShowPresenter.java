@@ -2,9 +2,7 @@ package com.xmg.testmvp.Presenter;
 
 import com.xmg.testmvp.Model.ShowListerner;
 import com.xmg.testmvp.Model.ShowModel;
-import com.xmg.testmvp.View.MainView;
-
-import java.util.logging.Handler;
+import com.xmg.testmvp.View.ShowView;
 
 /**
  * Created by xmg on 2016/9/22.
@@ -12,9 +10,9 @@ import java.util.logging.Handler;
 
 public class ShowPresenter {
     private ShowModel model;
-    private MainView mainView;
+    private ShowView mainView;
     private android.os.Handler handler;
-    public ShowPresenter(MainView mainView){
+    public ShowPresenter(ShowView mainView){
         this.mainView = mainView;
         model = new ShowModel();
         handler = new android.os.Handler();
@@ -23,10 +21,13 @@ public class ShowPresenter {
     public void Show(){
         model.showText(new ShowListerner() {
             @Override
-            public void showText(final String text) {
+            public void success(final String text) {
+
+                //更新UI在主线程
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+                        //返回给MainActivity
                         mainView.Onshow(text);
                     }
                 });

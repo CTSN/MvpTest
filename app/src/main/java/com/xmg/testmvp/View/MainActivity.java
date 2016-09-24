@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.xmg.testmvp.Presenter.ShowPresenter;
 import com.xmg.testmvp.R;
 
-public class MainActivity extends AppCompatActivity implements MainView{
+public class MainActivity extends AppCompatActivity implements ShowView{
 
     private ShowPresenter presenter;
     private TextView tv_show;
